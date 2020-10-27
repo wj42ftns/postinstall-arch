@@ -6,10 +6,8 @@ const { execSync } = require('child_process')
 const run = (command, options = {}) => execSync(command, { stdio: 'inherit', ...options })
 const hasErr = command => {
   try {
-    console.log(`|42| command ->    `, command)
-    execSync(command)
+    run(command, { stdio: 'ignore' })
   } catch (err) {
-    console.log(`|42| err ->    `, err)
     return true
   }
 
@@ -41,6 +39,8 @@ function installPacmanPrograms () {
     'speedcrunch', // gui calculator
     'bleachbit', // gui system cleaner
     'gparted', // gui working with hardware disk
+    'libreoffice-fresh', // gui office programs
+    'thunderbird', // gui email client
     // ################################
     // #       System utilities       #
     // ################################
@@ -58,8 +58,12 @@ function installPacmanPrograms () {
     // ########################
     // #       Internet       #
     // ########################
-    'firefox' // gui web browser
-    // '',
+    'firefox', // gui web browser
+    
+    // ###########################
+    // #       Programming       #
+    // ###########################
+    'vscode',
     // '',
     // '',
   ].join(' ')
@@ -67,6 +71,7 @@ function installPacmanPrograms () {
 }
 
 function installYay () {
+  
   if (hasNotErr('yay --version')) {
     // already installed
     return
@@ -90,20 +95,26 @@ function installYayPrograms () {
     // ########################
     // #       Internet       #
     // ########################
-    'skypeforlinux-stable-bin'
-    // '',
-    // '',
+    'google-chrome', // gui web browser
+    'skypeforlinux-stable-bin', // online calls
+    'slack-desktop', // online calls
+    'zoom',
     // '',
   ]
   run(`yay -S ${yayProgramList} --noconfirm --needed`)
 }
 
 function main () {
-  run('sudo pacman -Syu --noconfirm') // update packages and system
-  installYay()
   fixGrubForRu()
+  run('sudo pacman -Syu --noconfirm') // update pacman packages and system
+  installYay()
+  run('yay -Syu --noconfirm --devel --timeupdate') // update yay packages and system
   installPacmanPrograms()
   installYayPrograms()
+  
+  // clean up all unwanted dependencies
+  run('sudo pacman -Yc')
+  run('yay -Yc')
 }
 
 main()
