@@ -53,11 +53,15 @@ function installPacmanPrograms () {
     'tmux', // terminal multiplexer
     'htop', // cli checking process manager
     'tree', // cli showing tree structure of directory
+    'rsync', // cli synchronization files
+    'gparted', // gui managing disk partitions
+    'ristretto', // gui xcfe image viewer
     // #####################
     // #       Media       #
     // #####################
     'mplayer', // cli video/audio player
     'vlc', // gui video/audio player
+    'gimp', // image redactor
     // ########################
     // #       Internet       #
     // ########################
@@ -111,6 +115,7 @@ function installYayPrograms () {
 
 function main () {
   fixGrubForRu()
+  run('sudo pacman -Sy archlinux-keyring --noconfirm --needed') // before upgrading packages need to install it 
   run('sudo pacman -Syu --noconfirm') // update pacman packages and system
   installYay()
   run('yay -Syu --noconfirm --devel --timeupdate') // update yay packages and system
