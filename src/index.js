@@ -1,4 +1,7 @@
 const { execSync } = require('child_process')
+const os = require('os')
+
+// @TODO separate "main" and "casual" versions
 
 // https://www.baeldung.com/linux/bash-interactive-prompts
 // say yes in interactive script example: run('yes | apt remove baobab')
@@ -83,11 +86,13 @@ function installYay () {
     'wget', // cli file downloader
     'yajl' // cli json parser
   ].join(' ')
+
+  const tmpDir = os.tmpdir()
   run(`sudo pacman -S ${yayDependenciesList} --noconfirm --needed`)
-  run('rm -rf /tmp/yay')
-  run('git clone https://aur.archlinux.org/yay.git', { cwd: '/tmp' })
-  run('makepkg -si --noconfirm --needed', { cwd: '/tmp/yay' })
-  run('rm -rf /tmp/yay')
+  run(`rm -rf ${tmpDir}/yay`)
+  run('git clone https://aur.archlinux.org/yay.git', { cwd: tmpDir })
+  run('makepkg -si --noconfirm --needed', { cwd: `${tmpDir}/yay` })
+  run(`rm -rf ${tmpDir}/yay`)
 }
 
 function installYayPrograms () {
@@ -112,7 +117,7 @@ function main () {
   installPacmanPrograms()
   installYayPrograms()
   
-  // clean up all unwanted dependencies
+  // clean up all redundant dependencies
   run('sudo pacman -Yc')
   run('yay -Yc')
 }
