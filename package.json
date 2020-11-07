@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "postinstall-arch",
   "version": "0.0.1",
   "engines": {
