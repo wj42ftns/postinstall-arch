@@ -1,5 +1,6 @@
 const { sh } = require('../../helpers')
 const { ALACRITY, setUpAlacritty } = require('./alacritty')
+const { DOCKER, setUpDocker } = require('./docker')
 
 module.exports = async function installPacmanPrograms () {
   const pacmanProgramList = [
@@ -64,6 +65,8 @@ module.exports = async function installPacmanPrograms () {
     // ###########################
     // #       Programming       #
     // ###########################
+    DOCKER,
+    'docker-compose',
     'vscode'
     // '',
     // '',
@@ -71,4 +74,5 @@ module.exports = async function installPacmanPrograms () {
   await sh(`sudo pacman -S ${pacmanProgramList} --noconfirm --needed`)
   
   await setUpAlacritty()
+  await setUpDocker()
 }

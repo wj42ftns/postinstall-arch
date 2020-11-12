@@ -9,5 +9,5 @@ module.exports = async function setUpSystem () {
   await installZsh()
   await installNodeJs()
   await installGPUDrivers()
-  await addingLocalization()
+  // await addingLocalization()
 }
