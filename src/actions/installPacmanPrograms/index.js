@@ -49,6 +49,7 @@ module.exports = async function installPacmanPrograms () {
     'ristretto', // gui xcfe image viewer
     'transmission-cli', // cli torrent client
     'transmission-gtk', // gui torrent client
+    'flatpak', // programs manager with executing in a sandbox
     ALACRITY, // terminal emulator
     // #####################
     // #       Media       #
@@ -59,7 +60,6 @@ module.exports = async function installPacmanPrograms () {
     // ########################
     // #       Internet       #
     // ########################
-    'firefox', // gui web browser
     'thunderbird', // gui email client
     'mutt', // cli email client
     // ###########################
