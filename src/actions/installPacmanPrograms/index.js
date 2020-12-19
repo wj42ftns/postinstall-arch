@@ -62,6 +62,7 @@ module.exports = async function installPacmanPrograms () {
     // ########################
     'thunderbird', // gui email client
     'mutt', // cli email client
+    'elinks', // cli browser client
     // ###########################
     // #       Programming       #
     // ###########################

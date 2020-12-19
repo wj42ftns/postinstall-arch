@@ -10,7 +10,8 @@ module.exports = async function installYayPrograms () {
     'google-chrome', // gui web browser
     'skypeforlinux-stable-bin', // online calls
     'slack-desktop', // online calls
-    'zoom'
+    'zoom', // online calls
+    'anydesk-rpi' // remote control
     // '',
   ].join(' ')
   await sh(`yay -S ${yayProgramList} --noconfirm --needed`)

@@ -5,7 +5,6 @@ async function getCpuVendor () {
 }
 
 module.exports = async function installGPUDrivers () {
-  // @TODO https://github.com/exah-io/arch-linux/blob/master/2_base.sh
   const GPUDriversList = [
     // common gpu drivers
     'mesa',
