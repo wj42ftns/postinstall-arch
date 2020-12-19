@@ -1,6 +1,6 @@
 # home-backuper
 
-Pet project for preparing system after clear arco installation: https://www.youtube.com/watch?v=YQ_5DT-Lgrs
+Pet project for preparing system after clear anarchy installation: https://www.youtube.com/watch?v=WdNce2f-Odg&list=PL4h3VWjc7zFeEcCNtgrO2copCr40gd2yW&index=2
 
 ## build binary file
 
