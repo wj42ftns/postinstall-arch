@@ -15,31 +15,31 @@ sudo flatpak override --socket=wayland --env="MOZ_ENABLE_WAYLAND=1 GTK_USE_PORTA
 
 echo "Improving font rendering issues with Firefox Flatpak"
 sudo pacman -S --noconfirm gnome-settings-daemon
-mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig	
-touch $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf	
-tee -a $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf << EOF	
-<?xml version='1.0'?>	
-<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>	
-<fontconfig>	
-    <!-- Disable bitmap fonts. -->	
-    <selectfont><rejectfont><pattern>	
-        <patelt name="scalable"><bool>false</bool></patelt>	
-    </pattern></rejectfont></selectfont>	
-</fontconfig>	
+mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig
+touch $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+tee -a $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf << EOF
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+    <!-- Disable bitmap fonts. -->
+    <selectfont><rejectfont><pattern>
+        <patelt name="scalable"><bool>false</bool></patelt>
+    </pattern></rejectfont></selectfont>
+</fontconfig>
 EOF
 
 echo "Configuring Firefox Flatpak to run under wayland and other optimizations"
 sudo flatpak override --socket=wayland --env="MOZ_ENABLE_WAYLAND=1 GTK_USE_PORTAL=1" org.mozilla.firefox
 `)
 
-writeFileSync('/tmp/firefox.png', base64Data, 'base64')
+  writeFileSync('/tmp/firefox.png', base64Data, 'base64')
 
-await sh(`
+  await sh(`
 sudo cp /tmp/firefox.png /usr/share/icons/firefox.png
 rm /tmp/firefox.png
 mkdir -p $HOME/.local/share/applications
 touch $HOME/.local/share/applications/firefox.desktop
-tee -a $HOME/.local/share/applications/firefox.desktop << EOF	
+tee -a $HOME/.local/share/applications/firefox.desktop << EOF
 [Desktop Entry]
 Version=1.0
 Name=firefox

@@ -3,7 +3,7 @@ const { sh, addInShrc } = require('../helpers')
 const createCustomBashAliasesFile = async () => {
   await sh(`
 touch $HOME/.bashCustomAliases
-tee -a $HOME/.bashCustomAliases << EOF	
+tee -a $HOME/.bashCustomAliases << EOF
 alias ls='ls --color=auto --classify'
 alias zip='zip -9'
 alias gzip='gzip -9'
