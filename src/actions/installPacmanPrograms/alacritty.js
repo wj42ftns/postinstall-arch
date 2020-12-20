@@ -6,8 +6,8 @@ exports.setUpAlacritty = async function setUpAlacritty () {
   }
 
   await sh(`
-mkdir -p ~/.config/alacritty/
-wget -P ~/.config/alacritty/ https://raw.githubusercontent.com/exah-io/minimal-arch-linux/master/dotfiles/alacritty/alacritty.yml
+mkdir -p $HOME/.config/alacritty/
+wget -P $HOME/.config/alacritty/ https://raw.githubusercontent.com/exah-io/minimal-arch-linux/master/dotfiles/alacritty/alacritty.yml
 `)
 }
 

@@ -78,10 +78,10 @@ exports.addInShrc = async (
   string,
   options
 ) => {
-  if (await exports.hasNotErr(`sudo stat ~/.zshrc`)) {
-    await exports.appendToFileIfHasNot(`~/.zshrc`, string, options)
+  if (await exports.hasNotErr(`sudo stat $HOME/.zshrc`)) {
+    await exports.appendToFileIfHasNot(`$HOME/.zshrc`, string, options)
   }
-  if (await exports.hasNotErr(`sudo stat ~/.bashrc`)) {
-    await exports.appendToFileIfHasNot(`~/.bashrc`, string, options)
+  if (await exports.hasNotErr(`sudo stat $HOME/.bashrc`)) {
+    await exports.appendToFileIfHasNot(`$HOME/.bashrc`, string, options)
   }
 }

@@ -15,9 +15,9 @@ sudo flatpak override --socket=wayland --env="MOZ_ENABLE_WAYLAND=1 GTK_USE_PORTA
 
 echo "Improving font rendering issues with Firefox Flatpak"
 sudo pacman -S --noconfirm gnome-settings-daemon
-mkdir -p ~/.var/app/org.mozilla.firefox/config/fontconfig	
-touch ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf	
-tee -a ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf << EOF	
+mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig	
+touch $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf	
+tee -a $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf << EOF	
 <?xml version='1.0'?>	
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>	
 <fontconfig>	
@@ -37,9 +37,9 @@ writeFileSync('/tmp/firefox.png', base64Data, 'base64')
 await sh(`
 sudo cp /tmp/firefox.png /usr/share/icons/firefox.png
 rm /tmp/firefox.png
-mkdir -p ~/.local/share/applications
-touch ~/.local/share/applications/firefox.desktop
-tee -a ~/.local/share/applications/firefox.desktop << EOF	
+mkdir -p $HOME/.local/share/applications
+touch $HOME/.local/share/applications/firefox.desktop
+tee -a $HOME/.local/share/applications/firefox.desktop << EOF	
 [Desktop Entry]
 Version=1.0
 Name=firefox

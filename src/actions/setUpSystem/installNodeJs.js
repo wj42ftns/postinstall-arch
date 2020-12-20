@@ -34,7 +34,7 @@ async function installNvm () {
 
 async function getLatestLtsNode () {
   const res = await sh(`
-  . ~/.nvm/nvm.sh
+  . $HOME/.nvm/nvm.sh
   nvm ls-remote
 `)
   const ltsVersions = res.stdout
@@ -47,7 +47,7 @@ async function getLatestLtsNode () {
 
 async function installNode (latestLTSVersion) {
   await sh(`
-. ~/.nvm/nvm.sh
+. $HOME/.nvm/nvm.sh
 nvm install ${latestLTSVersion}
 nvm alias default ${latestLTSVersion}
 npm install -g npm
@@ -61,7 +61,7 @@ async function installGlobalNpmPackages () {
 
 module.exports = async function installNodeJs () {
   const res = await sh(`
-. ~/.nvm/nvm.sh
+. $HOME/.nvm/nvm.sh
 nvm --version
 `)
 
