@@ -3,6 +3,7 @@ const os = require('os')
 
 
 async function main () {
+  console.log(`|42| os.userInfo() ->    `, os.userInfo().username)
   console.log(`|42| os.userInfo().homedir ->    `, os.userInfo().homedir)
   // const result = await sh('node --version')
   // console.log(result)
