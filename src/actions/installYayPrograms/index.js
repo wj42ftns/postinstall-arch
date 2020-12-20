@@ -11,7 +11,7 @@ module.exports = async function installYayPrograms () {
     'skypeforlinux-stable-bin', // online calls
     'slack-desktop', // online calls
     'zoom', // online calls
-    'anydesk-rpi' // remote control
+    'anydesk-bin' // remote control
     // '',
   ].join(' ')
   await sh(`yay -S ${yayProgramList} --noconfirm --needed`)
