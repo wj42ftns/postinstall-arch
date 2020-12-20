@@ -18,6 +18,8 @@ async function main () {
   await enableServices()
   await cleanUp()
   await addAliases()
+
+  console.log('Successful finish!')
 }
 
 main()

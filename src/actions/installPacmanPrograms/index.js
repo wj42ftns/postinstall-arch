@@ -37,6 +37,7 @@ module.exports = async function installPacmanPrograms () {
     'gparted', // gui working with hardware disk
     'libreoffice-fresh', // gui office programs
     'pass', // cli password manager
+    'keepass', // gui password manager
     'openssh', // ssh utils
     'curl', // cli file downloader
     'wget', // cli file downloader
