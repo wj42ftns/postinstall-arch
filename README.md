@@ -1,4 +1,4 @@
-# home-backuper
+# postinstall-arch
 
 Pet project for preparing system after clear anarchy installation: https://www.youtube.com/watch?v=WdNce2f-Odg&list=PL4h3VWjc7zFeEcCNtgrO2copCr40gd2yW&index=2
 
