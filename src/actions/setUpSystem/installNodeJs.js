@@ -1,5 +1,5 @@
 const maxBy = require('lodash/maxBy')
-const { addInShrc, sh, hasErr } = require('../../helpers')
+const { addInShrc, sh, hasErr, hasNotErr } = require('../../helpers')
 
 async function getLastNvmVersion () {
   const versions = (await sh('git ls-remote --tags https://github.com/nvm-sh/nvm.git')).stdout
@@ -59,15 +59,28 @@ async function installGlobalNpmPackages () {
   await sh(`npm install -g ${globalNpmPackagesList}`)
 }
 
+async function removeOldNodeAndNpmWithoutNvm () {
+  if ((await hasNotErr('npm --version'))) {
+    await sh(`pacman -Ss npm --noconfirm`)
+  }
+  if ((await hasNotErr('node --version'))) {
+    await sh(`pacman -Ss nodejs --noconfirm`)
+  }
+}
+
 module.exports = async function installNodeJs () {
   const res = await sh(`
 . $HOME/.nvm/nvm.sh
 nvm --version
 `)
 
+
   if (res.code !== 0) {
+    await removeOldNodeAndNpmWithoutNvm()
     await installNvm()
   }
+
+
 
   const latestLTSVersion = await getLatestLtsNode()
   if ((await hasErr('node --version')) || latestLTSVersion !== (await sh('node --version')).stdout.toString()) {
