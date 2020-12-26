@@ -29,6 +29,7 @@ module.exports = async function installPacmanPrograms () {
     // ######################
     // #       System       #
     // ######################
+    'xarchiver p7zip zip unzip unrar', // working with archives 
     'ranger', // cli  vim-like file manager
     'thunar', // gui file manager
     'bc', // cli calculator
@@ -52,12 +53,17 @@ module.exports = async function installPacmanPrograms () {
     'transmission-gtk', // gui torrent client
     'flatpak', // programs manager with executing in a sandbox
     ALACRITY, // terminal emulator
+    'flameshot', // screenshots
+    'peek', // make gifs and light weight videos without sound screen recording
+    'obs-studio', // make hight quality video screen recording
+    'screenkey', // for screen recorders showing mouse and keyboard pressing
     // #####################
     // #       Media       #
     // #####################
     'mplayer', // cli video/audio player
     'vlc', // gui video/audio player
-    'gimp', // image editor
+    'gimp', // gui image editor
+    'pinta', // gui simple image editor
     // ########################
     // #       Internet       #
     // ########################
