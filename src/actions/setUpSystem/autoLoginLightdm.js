@@ -7,16 +7,10 @@ module.exports = async function autoLoginLightdm () {
   }
 
   const userName = os.userInfo().username
-  const expectedAutoLoginUser = `autologin-user=${userName}`
-  const regexp = new RegExp(`/^${expectedAutoLoginUser}/`)
-  const isAdded = await appendToFileIfHasNot('/etc/lightdm/lightdm.conf', expectedAutoLoginUser, {
-    regexp
-  })
-
-  if (isAdded) {
-    await sh(`
-      sudo groupadd -r autologin
-      sudo gpasswd -a $USER autologin
-    `)
-  }
+  await sh(`
+    sed -i 's/#autologin-user=/autologin-user=${userName}/' /etc/lightdm/lightdm.conf
+    sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0.01 #(with 0 may not work)/' /etc/lightdm/lightdm.conf
+    sudo groupadd -r autologin
+    sudo gpasswd -a $USER autologin
+  `)
 }

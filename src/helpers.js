@@ -57,11 +57,12 @@ exports.appendToFileIfHasNot = async (
   }
 
   let preparedString = string
-  if (comment) {
-    preparedString = `${comment}\n${preparedString}`
-  }
   if (addEmptyLineBeforeText) {
     preparedString = `\n${preparedString}`
+  }
+  
+  if (comment) {
+    preparedString = `${comment}\n${preparedString}`
   }
 
   await exports.fileContains(pathToFile, regexp)
