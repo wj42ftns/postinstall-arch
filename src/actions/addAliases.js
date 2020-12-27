@@ -1,7 +1,7 @@
-const { sh, hasErr, addInShrc } = require('../helpers')
+const { sh, hasNotErr, addInShrc } = require('../helpers')
 
 const createCustomBashAliasesFile = async () => {
-  if (await hasErr('sudo stat $HOME/.bashCustomAliases')) {
+  if (await hasNotErr('sudo stat $HOME/.bashCustomAliases')) {
     return
   }
 
