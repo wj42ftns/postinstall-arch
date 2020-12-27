@@ -1,5 +1,5 @@
 const os = require('os')
-const { sh, hasErr, appendToFileIfHasNot } = require('../../helpers')
+const { sh, hasErr } = require('../../helpers')
 
 module.exports = async function autoLoginLightdm () {
   if (await hasErr('sudo stat /etc/lightdm/lightdm.conf')) {
