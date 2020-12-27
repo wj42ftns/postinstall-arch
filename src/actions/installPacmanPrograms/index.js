@@ -31,7 +31,7 @@ module.exports = async function installPacmanPrograms () {
     'bc', // cli calculator
     'speedcrunch', // gui calculator
     'bleachbit', // gui system cleaner
-    'gparted', // gui working with hardware disk
+    'gparted', // gui managing disk partitions
     'libreoffice-fresh', // gui office programs
     'pass', // cli password manager
     'keepass', // gui password manager
@@ -43,7 +43,6 @@ module.exports = async function installPacmanPrograms () {
     'htop', // cli checking process manager
     'tree', // cli showing tree structure of directory
     'rsync', // cli synchronization files
-    'gparted', // gui managing disk partitions
     'ristretto', // gui xcfe image viewer
     'transmission-cli', // cli torrent client
     'transmission-gtk', // gui torrent client
