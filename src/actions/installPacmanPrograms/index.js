@@ -4,10 +4,6 @@ const { DOCKER, setUpDocker } = require('./docker')
 
 module.exports = async function installPacmanPrograms () {
   const pacmanProgramList = [
-    // ##############################
-    // #       i3 environment       #
-    // ##############################
-    'dmenu', // i3 integrated program runner
     // #####################
     // #       Fonts       #
     // #####################
