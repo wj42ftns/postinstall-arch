@@ -45,7 +45,7 @@ async function installFirefox () {
   // Version=1.0
   // Name=firefox
   // Comment=firefox
-  // Exec=flatpak run /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox --file-forwarding org.mozilla.firefox @@u %u @@
+  // Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox --file-forwarding org.mozilla.firefox @@u %u @@
   // Icon=/usr/share/icons/firefox.png
   // Terminal=false
   // Type=Application
@@ -54,5 +54,5 @@ async function installFirefox () {
   // `)
 }
 module.exports = async function installFlatpakPrograms () {
-  await installFirefox
+  await installFirefox()
 }
