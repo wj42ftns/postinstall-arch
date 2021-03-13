@@ -1,4 +1,4 @@
-const { sh, hasErr, appendToFileIfHasNot } = require('../../helpers')
+const { sh } = require('../../helpers')
 
 const RAM_SIZE_WHEN_NOT_NECESSARY_SWAP = 12 * 1024 * 1024
 

@@ -10,10 +10,53 @@
     "standard"
   ],
   "rules": {
-    "semi": [2, "never"],
+    "semi": [
+      2,
+      "never"
+    ],
+    "curly": [
+      2,
+      "all"
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      { "allowSingleLine": false }
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "space-infix-ops": [
+      "error",
+      { "int32Hint": false }
+    ],
+    "no-multi-spaces": [
+      "error"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ],
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "object-curly-spacing": [
+      1,
+      "always"
+    ],
+    "no-implicit-coercion": 2,
     "no-nested-ternary": 2,
     "no-var": 2,
     "react/prop-types": 0,
-    "react/display-name": 0
+    "react/display-name": 0,
   }
 }

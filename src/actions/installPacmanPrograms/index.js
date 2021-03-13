@@ -62,6 +62,7 @@ module.exports = async function installPacmanPrograms () {
     // ########################
     // #       Internet       #
     // ########################
+    'firefox', // main gui web browser
     'thunderbird', // gui email client
     'mutt', // cli email client
     'elinks', // cli browser client
@@ -70,7 +71,6 @@ module.exports = async function installPacmanPrograms () {
     // ###########################
     DOCKER,
     'docker-compose',
-    'vscode'
     // '',
     // '',
   ].join(' ')
