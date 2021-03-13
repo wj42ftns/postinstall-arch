@@ -19,7 +19,11 @@ module.exports = async function installYayPrograms () {
     isCasual && 'skypeforlinux-stable-bin', // online calls
     'slack-desktop', // online calls
     'zoom', // online calls
-    'anydesk-bin' // remote control
+    'anydesk-bin', // remote control
+    // ###########################
+    // #       Programming       #
+    // ###########################
+    isMain && 'intellij-idea-ultimate-edition' // IDE
     // '',
   ].filter(Boolean).join(' ')
   await sh(`yay -S ${yayProgramList} --noconfirm --needed`)

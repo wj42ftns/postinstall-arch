@@ -1,5 +1,5 @@
 const { hasErr, hasNotErr, fileContains, appendToFileIfHasNot, sh } = require('./helpers') // eslint-disable-line
-const os = require('os')
+const os = require('os') // eslint-disable-line
 
 
 async function main () {

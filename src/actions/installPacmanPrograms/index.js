@@ -63,7 +63,7 @@ module.exports = async function installPacmanPrograms () {
     // #       Internet       #
     // ########################
     'firefox', // main gui web browser
-    isMain && 'telegram-desktop',
+    isMain && 'telegram-desktop', // messenger
     isMain && 'thunderbird', // gui email client
     isMain && 'mutt', // cli email client
     isMain && 'elinks', // cli browser client
