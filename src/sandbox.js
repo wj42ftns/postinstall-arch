@@ -1,10 +1,8 @@
-const { hasErr, hasNotErr, fileContains, appendToFileIfHasNot, sh } = require('./helpers')
+const { hasErr, hasNotErr, fileContains, appendToFileIfHasNot, sh } = require('./helpers') // eslint-disable-line
 const os = require('os')
 
 
 async function main () {
-  console.log(`|42| os.userInfo() ->    `, os.userInfo().username)
-  console.log(`|42| os.userInfo().homedir ->    `, os.userInfo().homedir)
   // const result = await sh('node --version')
   // console.log(result)
 

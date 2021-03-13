@@ -17,26 +17,26 @@ module.exports = async function installGPUDrivers () {
   const cpuVendor = getCpuVendor()
   let videoDriversEnvironmentVariables
   switch (cpuVendor) {
-    case 'AuthenticAMD':
-      GPUDriversList.push(
-        'xf86-video-amdgpu',
-        'vulkan-radeon',
-        'lib32-vulkan-radeon',
-        'libva-mesa-driver',
-        'lib32-libva-mesa-driver',
-        'mesa-vdpau',
-        'lib32-mesa-vdpau'
-      )
-      videoDriversEnvironmentVariables = 'export LIBVA_DRIVER_NAME=radeonsi'
-      break
-    case 'GenuineIntel':
-      GPUDriversList.push('vulkan-intel', 'lib32-vulkan-intel', 'intel-media-driver', 'libvdpau-va-gl')
-      videoDriversEnvironmentVariables = 'export LIBVA_DRIVER_NAME=iHD\nexport VDPAU_DRIVER=va_gl'
-      break
+  case 'AuthenticAMD':
+    GPUDriversList.push(
+      'xf86-video-amdgpu',
+      'vulkan-radeon',
+      'lib32-vulkan-radeon',
+      'libva-mesa-driver',
+      'lib32-libva-mesa-driver',
+      'mesa-vdpau',
+      'lib32-mesa-vdpau'
+    )
+    videoDriversEnvironmentVariables = 'export LIBVA_DRIVER_NAME=radeonsi'
+    break
+  case 'GenuineIntel':
+    GPUDriversList.push('vulkan-intel', 'lib32-vulkan-intel', 'intel-media-driver', 'libvdpau-va-gl')
+    videoDriversEnvironmentVariables = 'export LIBVA_DRIVER_NAME=iHD\nexport VDPAU_DRIVER=va_gl'
+    break
 
-    default:
-      console.error('@installGPUDrivers::Not found supported cpu vendor, skip...')
-      break
+  default:
+    console.error('@installGPUDrivers::Not found supported cpu vendor, skip...')
+    break
   }
 
   await sh(`yay -S ${GPUDriversList.join(' ')} --noconfirm --needed`)

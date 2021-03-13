@@ -86,3 +86,7 @@ exports.addInShrc = async (
     await exports.appendToFileIfHasNot(`$HOME/.bashrc`, string, options)
   }
 }
+
+
+exports.isMain = process.argv.includes('--main')
+exports.isCasual = !exports.isMain

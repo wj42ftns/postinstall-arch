@@ -1,4 +1,4 @@
-const { sh } = require('../../helpers')
+const { sh, isMain, isCasual } = require('../../helpers')
 const { ALACRITY, setUpAlacritty } = require('./alacritty')
 const { DOCKER, setUpDocker } = require('./docker')
 
@@ -26,16 +26,17 @@ module.exports = async function installPacmanPrograms () {
     // #       System       #
     // ######################
     'xarchiver p7zip zip unzip unrar', // working with archives 
-    'ranger', // cli  vim-like file manager
+    isMain && 'ranger', // cli  vim-like file manager
     'thunar', // gui file manager
-    'bc', // cli calculator
-    'speedcrunch', // gui calculator
+    isMain && 'bc', // cli calculator
+    isCasual && 'speedcrunch', // gui calculator
     'bleachbit', // gui system cleaner
     'gparted', // gui managing disk partitions
     'libreoffice-fresh', // gui office programs
-    'pass', // cli password manager
+    isMain && 'pass', // cli password manager
     'keepass', // gui password manager
     'openssh', // ssh utils
+    'openvpn', // cli using vpn
     'curl', // cli file downloader
     'wget', // cli file downloader
     'git', // cli downloading repositories
@@ -44,9 +45,8 @@ module.exports = async function installPacmanPrograms () {
     'tree', // cli showing tree structure of directory
     'rsync', // cli synchronization files
     'ristretto', // gui xcfe image viewer
-    'transmission-cli', // cli torrent client
+    isMain && 'transmission-cli', // cli torrent client
     'transmission-gtk', // gui torrent client
-    'flatpak', // programs manager with executing in a sandbox
     ALACRITY, // terminal emulator
     'flameshot', // screenshots
     'peek', // make gifs and light weight videos without sound screen recording
@@ -63,17 +63,17 @@ module.exports = async function installPacmanPrograms () {
     // #       Internet       #
     // ########################
     'firefox', // main gui web browser
-    'thunderbird', // gui email client
-    'mutt', // cli email client
-    'elinks', // cli browser client
+    isMain && 'thunderbird', // gui email client
+    isMain && 'mutt', // cli email client
+    isMain && 'elinks', // cli browser client
     // ###########################
     // #       Programming       #
     // ###########################
-    DOCKER,
-    'docker-compose',
+    isMain && DOCKER,
+    isMain && 'docker-compose',
     // '',
     // '',
-  ].join(' ')
+  ].filter(Boolean).join(' ')
   await sh(`sudo pacman -S ${pacmanProgramList} --noconfirm --needed`)
   
   await setUpAlacritty()

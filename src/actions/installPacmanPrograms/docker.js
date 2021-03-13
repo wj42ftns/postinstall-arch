@@ -1,7 +1,7 @@
-const { sh, hasErr } = require('../../helpers')
+const { sh, hasErr, isCasual } = require('../../helpers')
 
 exports.setUpDocker = async function setUpDocker () {
-  if (await hasErr('docker --version')) {
+  if (isCasual || await hasErr('docker --version')) {
     return
   }
 
