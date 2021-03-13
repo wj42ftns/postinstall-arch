@@ -40,7 +40,7 @@ module.exports = async function installPacmanPrograms () {
     'curl', // cli file downloader
     'wget', // cli file downloader
     'git', // cli downloading repositories
-    'tmux', // terminal multiplexer
+    isMain && 'tmux', // terminal multiplexer
     'htop', // cli checking process manager
     'tree', // cli showing tree structure of directory
     'rsync', // cli synchronization files
@@ -63,6 +63,7 @@ module.exports = async function installPacmanPrograms () {
     // #       Internet       #
     // ########################
     'firefox', // main gui web browser
+    isMain && 'telegram-desktop',
     isMain && 'thunderbird', // gui email client
     isMain && 'mutt', // cli email client
     isMain && 'elinks', // cli browser client
