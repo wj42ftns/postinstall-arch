@@ -25,7 +25,8 @@ module.exports = async function installPacmanPrograms () {
     // ######################
     // #       System       #
     // ######################
-    'xarchiver p7zip zip unzip unrar', // working with archives 
+    'xarchiver p7zip zip unzip unrar', // working with archives
+    'alsa-utils alsa-plugins', // sound
     isMain && 'ranger', // cli  vim-like file manager
     'thunar', // gui file manager
     isMain && 'bc', // cli calculator
