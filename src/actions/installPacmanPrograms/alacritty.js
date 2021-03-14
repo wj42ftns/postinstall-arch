@@ -1,6 +1,6 @@
-const { sh, hasNotErr, progress } = require('../../helpers')
+const { sh, hasNotErr } = require('../../helpers')
 
-exports.setUpAlacritty = progress(async function setUpAlacritty () {
+exports.setUpAlacritty = async function setUpAlacritty () {
   if (await hasNotErr('alacritty --version')) {
     return
   }
@@ -193,6 +193,6 @@ colors:
 
 EOF
 `)
-})
+}
 
 exports.ALACRITY = 'alacritty'

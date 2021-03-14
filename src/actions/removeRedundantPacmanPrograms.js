@@ -1,5 +1,5 @@
-const { sh, progress } = require('../helpers')
-module.exports = progress(async function removeRedundantPacmanPrograms () {
+const { sh } = require('../helpers')
+module.exports = async function removeRedundantPacmanPrograms () {
   const pacmanProgramList = [
     'mousepad',
     'xterm',
@@ -8,4 +8,4 @@ module.exports = progress(async function removeRedundantPacmanPrograms () {
     // '',
   ].filter(Boolean).join(' ')
   await sh(`sudo pacman -Rs ${pacmanProgramList} --noconfirm --needed`)
-})
+}

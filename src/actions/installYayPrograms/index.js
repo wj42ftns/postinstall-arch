@@ -1,7 +1,7 @@
-const { sh, isCasual, isMain, progress } = require('../../helpers')
+const { sh, isCasual, isMain } = require('../../helpers')
 const { setUpSublimeText, SUBLIME_TEXT } = require('./sublimeText')
 
-module.exports = progress(async function installYayPrograms () {
+module.exports = async function installYayPrograms () {
   const yayProgramList = [
     // ######################
     // #       System       #
@@ -28,4 +28,4 @@ module.exports = progress(async function installYayPrograms () {
   ].filter(Boolean).join(' ')
   await sh(`yay -S ${yayProgramList} --noconfirm --needed`)
   setUpSublimeText()
-})
+}

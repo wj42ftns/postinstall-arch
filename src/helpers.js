@@ -1,6 +1,5 @@
 const { spawn } = require('child_process')
 const chalk = require('chalk')
-const startCase = require('lodash/startCase')
 
 // https://www.baeldung.com/linux/bash-interactive-prompts
 // say yes in interactive script example: await sh('yes | apt remove baobab')
@@ -89,31 +88,6 @@ exports.addInShrc = async (
   }
 }
 
-const positiveInfo = (text) => console.log(chalk.bold.green(text))
-let progressCounter = 0
-exports.progress = (fn) => {
-  ++progressCounter
-  const currentProgressActionNumber = progressCounter
-  return (...args) => {
-    const result = fn(...args)
-    const humanAction = startCase(fn.name)
-    const info = () => {
-      positiveInfo(`"${humanAction}", finished! (${currentProgressActionNumber}/${progressCounter})`)
-      if (progressCounter === currentProgressActionNumber) {
-        positiveInfo('-'.repeat(31))
-        positiveInfo('|       SCRIPT FINISHED       |')
-        positiveInfo('-'.repeat(31))
-      }
-    }
-    if (result?.toString?.() === '[object Promise]') {
-      result.then(info)
-    } else {
-      info()
-    }
-
-    return result
-  }
-}
-
+exports.positiveInfo = (text) => console.log(chalk.bold.green(text))
 exports.isMain = process.argv.includes('--main')
 exports.isCasual = !exports.isMain

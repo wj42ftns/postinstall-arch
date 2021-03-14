@@ -1,6 +1,6 @@
-const { sh, hasNotErr, progress } = require('../../helpers')
+const { sh, hasNotErr } = require('../../helpers')
 
-module.exports = progress(async function installZsh () {
+module.exports = async function installZsh () {
   if (await hasNotErr('zsh --version')) {
     return
   }
@@ -9,4 +9,4 @@ module.exports = progress(async function installZsh () {
 sudo pacman -S zsh zsh-completions --noconfirm --needed
 chsh -s /usr/bin/zsh
 `)
-})
+}

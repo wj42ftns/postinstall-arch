@@ -1,6 +1,6 @@
-const { sh, hasErr, fileContains, progress } = require('../../helpers')
+const { sh, hasErr, fileContains } = require('../../helpers')
 
-module.exports = progress(async function updateGrubTimer () {
+module.exports = async function updateGrubTimer () {
   if (await hasErr('sudo stat /etc/default/grub')) {
     return
   }
@@ -15,4 +15,4 @@ module.exports = progress(async function updateGrubTimer () {
     sudo sed -i -r 's/GRUB_TIMEOUT=[0-9]+/GRUB_TIMEOUT=${DELAY}/m' '/etc/default/grub'
     sudo grub-mkconfig -o /boot/grub/grub.cfg
   `)
-})
+}

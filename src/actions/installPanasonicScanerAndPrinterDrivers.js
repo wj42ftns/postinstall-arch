@@ -1,10 +1,10 @@
 const axios = require('axios')
 const { JSDOM } = require("jsdom")
-const { sh, isMain, progress } = require('../helpers')
+const { sh, isMain } = require('../helpers')
 
 const OFFICIAL_DRIVERS_LINK = 'https://panasonic.net/cns/pcc/support/fax/common/table/linuxdriver.html'
 
-const installDependenciesAndScannerSupporting = progress(async function installDependenciesAndScannerSupporting () {
+const installDependenciesAndScannerSupporting = async function installDependenciesAndScannerSupporting () {
   await sh(`
 sudo pacman -S cups
 sudo systemctl start cups.service
@@ -16,9 +16,9 @@ sudo pacman -S simple-scan
 sudo pacman -S system-config-printer
 sudo pacman -S ghostscript
 `)
-})
+}
 
-const installOfficialPrinterDriver = progress(async function installOfficialPrinterDriver () {
+const installOfficialPrinterDriver = async function installOfficialPrinterDriver () {
   const { data } = await axios.get(OFFICIAL_DRIVERS_LINK)
   const dom = new JSDOM(data)
 
@@ -38,13 +38,13 @@ rm -rf $HOME/${folderName}.tar.gz
 sudo $HOME/${folderName}/install-driver
 rm -rf $HOME/${folderName}
 `)
-})
+}
 
-module.exports = progress(async function installPanasonicScanerAndPrinterDrivers () {
+module.exports = async function installPanasonicScanerAndPrinterDrivers () {
   if (isMain) {
     return
   }
 
   await installDependenciesAndScannerSupporting()
   await installOfficialPrinterDriver()
-})
+}

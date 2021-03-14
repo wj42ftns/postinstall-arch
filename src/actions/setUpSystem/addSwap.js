@@ -1,8 +1,8 @@
-const { sh, progress } = require('../../helpers')
+const { sh } = require('../../helpers')
 
 const RAM_SIZE_WHEN_NOT_NECESSARY_SWAP = 12 * 1024 * 1024
 
-const getShouldAddSwapSize = progress(async function getShouldAddSwapSize () {
+const getShouldAddSwapSize = async function getShouldAddSwapSize () {
   const hasNotSwap =
     (await sh(`free -h | grep Swap:`)).stdout
       .toString()
@@ -34,9 +34,9 @@ const getShouldAddSwapSize = progress(async function getShouldAddSwapSize () {
   }
 
   return `${swapSize.toFixed(0)}G`
-})
+}
 
-module.exports = progress(async function addSwap () {
+module.exports = async function addSwap () {
   const swapSize = await getShouldAddSwapSize()
   if (!swapSize) {
     return
@@ -51,4 +51,4 @@ module.exports = progress(async function addSwap () {
     echo '/swapfile     swap     swap     defaults     0     0' | sudo tee -a /etc/fstab
     sudo cp /etc/fstab /etc/fstabWithSwap.bak
   `)
-})
+}

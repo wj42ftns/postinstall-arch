@@ -1,7 +1,7 @@
 const os = require('os')
-const { sh, hasNotErr, progress } = require('../../../helpers')
+const { sh, hasNotErr } = require('../../../helpers')
 
-module.exports = progress(async function installYay () {
+module.exports = async function installYay () {
   if (await hasNotErr('yay --version')) {
     // already installed
     return
@@ -24,4 +24,4 @@ cd yay
 makepkg -si --noconfirm --needed
 rm -rf ${tmpDir}/yay
 `)
-})
+}
