@@ -1,5 +1,8 @@
 const { sh, hasNotErr, addInShrc, isMain } = require('../helpers')
 
+
+const PATH_TO_CUSTOM_ALIASES = '$HOME/.customScripts/customAliases.sh'
+
 const createCustomBashAliasesFile = async function createCustomBashAliasesFile () {
   if (await hasNotErr('sudo stat $HOME/.bashCustomAliases')) {
     return
@@ -7,8 +10,8 @@ const createCustomBashAliasesFile = async function createCustomBashAliasesFile (
 
   await sh(`
 mkdir $HOME/.customScripts
-touch $HOME/.customScripts/customAliases.sh
-tee -a $HOME/.bashCustomAliases << EOF
+touch ${PATH_TO_CUSTOM_ALIASES}
+tee -a ${PATH_TO_CUSTOM_ALIASES} << EOF
 alias ls='ls --color=auto --classify'
 alias off='systemctl poweroff -i'
 alias reb='systemctl reboot -i'
@@ -24,5 +27,5 @@ EOF
 
 module.exports = async function addAliases () {
   await createCustomBashAliasesFile()
-  await addInShrc('source $HOME/customAliases.sh')
+  await addInShrc(`source ${PATH_TO_CUSTOM_ALIASES}`)
 }
