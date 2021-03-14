@@ -5,10 +5,9 @@ const removeRedundantPacmanPrograms = require('./actions/removeRedundantPacmanPr
 const installYayPrograms = require('./actions/installYayPrograms/index')
 const addAliases = require('./actions/addAliases')
 const cleanUp = require('./actions/cleanUp')
+const installPanasonicScanerAndPrinterDrivers = require('./actions/installPanasonicScanerAndPrinterDrivers')
 
 // used some of this script: https://github.com/exah-io/arch-linux/blob/master/2_base.sh
-
-// @TODO separate "main" and "casual" versions
 
 async function main () {
   await setUpSystem()
@@ -18,8 +17,7 @@ async function main () {
   await enableServices()
   await cleanUp()
   await addAliases()
-
-  console.log('Successful finish!')
+  await installPanasonicScanerAndPrinterDrivers() // Panasonic KX-M1500
 }
 
 main()

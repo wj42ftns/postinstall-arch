@@ -1,8 +1,7 @@
 {
   "extends": [
     "standard",
-    "prettier",
-    "prettier/standard"
+    "prettier"
   ],
   "plugins": [
     "import",
