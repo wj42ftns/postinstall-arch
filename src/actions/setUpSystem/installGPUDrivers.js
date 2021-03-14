@@ -4,6 +4,13 @@ const getCpuVendor = progress(async function getCpuVendor () {
   return (await sh('cat /proc/cpuinfo | grep vendor | uniq')).stdout.toString().replace(/^.*: /, '')
 })
 
+const isNVidiaSupported = progress(async function isNVidiaSupported () {
+  return (await sh(`modinfo nvidia`)).stderr?.[0] !== 'modinfo: ERROR: Module rest not found.'
+})
+const isLtsLinuxKernel = progress (async function isLtsLinuxKernel () {
+  return (await sh(`uname -r`)).stdout?.[0]?.endsWith?.('-lts')
+})
+
 module.exports = progress(async function installGPUDrivers () {
   const GPUDriversList = [
     // common gpu drivers
@@ -43,5 +50,10 @@ module.exports = progress(async function installGPUDrivers () {
 
   if (videoDriversEnvironmentVariables) {
     await addInShrc(videoDriversEnvironmentVariables, { comment: '# video drivers environment variables' })
+  }
+
+  if (await isNVidiaSupported()) {
+    const driverName = (await isLtsLinuxKernel()) ? 'nvidia-lts' : 'nvidia'
+    await sh(`sudo pacman -S ${driverName} --noconfirm --needed`)
   }
 })
