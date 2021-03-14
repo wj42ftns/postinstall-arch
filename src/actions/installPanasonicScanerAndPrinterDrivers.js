@@ -6,15 +6,13 @@ const OFFICIAL_DRIVERS_LINK = 'https://panasonic.net/cns/pcc/support/fax/common/
 
 const installDependenciesAndScannerSupporting = async function installDependenciesAndScannerSupporting () {
   await sh(`
-sudo pacman -S cups
+sudo pacman -S cups --noconfirm --needed
 sudo systemctl start cups.service
 sudo systemctl enable cups.service
 sudo usermod -a -G sys $USER
 sudo systemctl restart cups.service
-yay -S panasonic-mfp
-sudo pacman -S simple-scan
-sudo pacman -S system-config-printer
-sudo pacman -S ghostscript
+yay -S panasonic-mfp --noconfirm --needed
+sudo pacman -S simple-scan system-config-printer ghostscript --noconfirm --needed
 `)
 }
 
