@@ -6,8 +6,9 @@ const autoLoginLightdm = require('./autoLoginLightdm')
 const updateGrubTimer = require('./updateGrubTimer')
 const backupFstab = require('./backupFstab')
 const addSwap = require('./addSwap')
+const { progress } = require('../../helpers')
 
-module.exports = async function setUpSystem () {
+module.exports = progress(async function setUpSystem () {
   await backupFstab()
   await addSwap()
   await preparePackageManagers()
@@ -16,4 +17,4 @@ module.exports = async function setUpSystem () {
   await installZsh()
   await installNodeJs()
   await installGPUDrivers()
-}
+})

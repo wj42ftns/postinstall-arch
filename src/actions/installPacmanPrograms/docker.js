@@ -1,6 +1,6 @@
-const { sh, hasErr, isCasual } = require('../../helpers')
+const { sh, hasErr, isCasual, progress } = require('../../helpers')
 
-exports.setUpDocker = async function setUpDocker () {
+exports.setUpDocker = progress(async function setUpDocker () {
   if (isCasual || await hasErr('docker --version')) {
     return
   }
@@ -11,6 +11,6 @@ exports.setUpDocker = async function setUpDocker () {
   sudo groupadd docker
   sudo usermod -aG docker $USER
   `)
-}
+})
 
 exports.DOCKER = 'docker'

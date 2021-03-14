@@ -1,6 +1,6 @@
-const { sh, hasNotErr, addInShrc, isMain } = require('../helpers')
+const { sh, hasNotErr, addInShrc, isMain, progress } = require('../helpers')
 
-const createCustomBashAliasesFile = async () => {
+const createCustomBashAliasesFile = progress(async function createCustomBashAliasesFile () {
   if (await hasNotErr('sudo stat $HOME/.bashCustomAliases')) {
     return
   }
@@ -20,9 +20,9 @@ alias defaultVpn='sudo openvpn --config ~/.vpn/amsterdam-main.ovpn'
 alias vismeVpn="node ~/.customScripts/vismeVpn.js"
 EOF
 `)
-}
+})
 
-module.exports = async function addAliases () {
+module.exports = progress(async function addAliases () {
   await createCustomBashAliasesFile()
   await addInShrc('source $HOME/customAliases.sh')
-}
+})

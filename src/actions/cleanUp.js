@@ -1,10 +1,10 @@
-const { sh } = require('../helpers')
+const { sh, progress } = require('../helpers')
 
-module.exports = async function installYayPrograms () {
+module.exports = progress(async function installYayPrograms () {
   // clean up all redundant dependencies
   await sh(`
 sudo pacman -Sc --noconfirm
 yay -Sc --noconfirm
 yay -Yc --noconfirm
 `)
-}
+})

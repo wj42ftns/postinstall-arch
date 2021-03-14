@@ -6,10 +6,11 @@ const installYayPrograms = require('./actions/installYayPrograms/index')
 const addAliases = require('./actions/addAliases')
 const cleanUp = require('./actions/cleanUp')
 const installPanasonicScanerAndPrinterDrivers = require('./actions/installPanasonicScanerAndPrinterDrivers')
+const { progress } = require('./helpers')
 
 // used some of this script: https://github.com/exah-io/arch-linux/blob/master/2_base.sh
 
-async function main () {
+const main = progress(async function main () {
   await setUpSystem()
   await installPacmanPrograms()
   await removeRedundantPacmanPrograms()
@@ -18,6 +19,6 @@ async function main () {
   await cleanUp()
   await addAliases()
   await installPanasonicScanerAndPrinterDrivers() // Panasonic KX-M1500
-}
+})
 
 main()

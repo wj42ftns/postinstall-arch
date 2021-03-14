@@ -1,6 +1,6 @@
-const { sh, hasNotErr } = require('../../helpers')
+const { sh, hasNotErr, progress } = require('../../helpers')
 
-module.exports = async function enableBlueTooth () {
+module.exports = progress(async function enableBlueTooth () {
   if (await hasNotErr('systemctl status bluetooth.service')) {
     return
   }
@@ -9,4 +9,4 @@ module.exports = async function enableBlueTooth () {
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 `)
-}
+})

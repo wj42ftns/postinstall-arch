@@ -1,10 +1,10 @@
-const { sh, addInShrc } = require('../../helpers')
+const { sh, addInShrc, progress } = require('../../helpers')
 
-async function getCpuVendor () {
+const getCpuVendor = progress(async function getCpuVendor () {
   return (await sh('cat /proc/cpuinfo | grep vendor | uniq')).stdout.toString().replace(/^.*: /, '')
-}
+})
 
-module.exports = async function installGPUDrivers () {
+module.exports = progress(async function installGPUDrivers () {
   const GPUDriversList = [
     // common gpu drivers
     'mesa',
@@ -44,4 +44,4 @@ module.exports = async function installGPUDrivers () {
   if (videoDriversEnvironmentVariables) {
     await addInShrc(videoDriversEnvironmentVariables, { comment: '# video drivers environment variables' })
   }
-}
+})

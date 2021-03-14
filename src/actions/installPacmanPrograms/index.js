@@ -1,8 +1,8 @@
-const { sh, isMain, isCasual } = require('../../helpers')
+const { sh, isMain, isCasual, progress } = require('../../helpers')
 const { ALACRITY, setUpAlacritty } = require('./alacritty')
 const { DOCKER, setUpDocker } = require('./docker')
 
-module.exports = async function installPacmanPrograms () {
+module.exports = progress(async function installPacmanPrograms () {
   const pacmanProgramList = [
     // #####################
     // #       Fonts       #
@@ -80,4 +80,4 @@ module.exports = async function installPacmanPrograms () {
   
   await setUpAlacritty()
   await setUpDocker()
-}
+})

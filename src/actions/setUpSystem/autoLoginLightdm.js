@@ -1,7 +1,7 @@
 const os = require('os')
-const { sh, hasErr } = require('../../helpers')
+const { sh, hasErr, progress } = require('../../helpers')
 
-module.exports = async function autoLoginLightdm () {
+module.exports = progress(async function autoLoginLightdm () {
   if (await hasErr('sudo stat /etc/lightdm/lightdm.conf')) {
     return
   }
@@ -13,4 +13,4 @@ module.exports = async function autoLoginLightdm () {
     sudo groupadd -r autologin
     sudo gpasswd -a $USER autologin
   `)
-}
+})
