@@ -9,13 +9,13 @@ const backupFstab = require('./backupFstab')
 const addSwap = require('./addSwap')
 
 module.exports = async function setUpSystem () {
+  await preparePackageManagers()
   await installZsh()
+  await installGPUDrivers()
   await installJavaForIdea()
   await backupFstab()
   await addSwap()
-  await preparePackageManagers()
   await autoLoginLightdm()
   await updateGrubTimer()
   await installNodeJs()
-  await installGPUDrivers()
 }

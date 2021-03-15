@@ -15,7 +15,7 @@ look for binary script in postinstallArch.exe
 
 ## usage
 
-casual (xcfe and without some programs for work)
+casual
 
 ```shell
 wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
