@@ -18,13 +18,15 @@ look for binary script in postinstallArch.exe
 casual (xcfe and without some programs for work)
 
 ```shell
-wget -O - https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe | bash
+wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
+bash postinstallArch.exe
+rm postinstallArch.exe
 ```
 
 or main
 
 ```shell
-wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe -O postinstall-arch.sh
-bash postinstall-arch.sh --main
-rm postinstall-arch.sh
+wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
+bash postinstallArch.exe --main
+rm postinstallArch.exe
 ```
