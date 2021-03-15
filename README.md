@@ -19,7 +19,8 @@ casual (xcfe and without some programs for work)
 
 ```shell
 wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
-bash postinstallArch.exe
+chmod 700 ./postinstallArch.exe
+./postinstallArch.exe
 rm postinstallArch.exe
 ```
 
@@ -27,6 +28,7 @@ or main
 
 ```shell
 wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
-bash postinstallArch.exe --main
+chmod 700 ./postinstallArch.exe
+./postinstallArch.exe --main
 rm postinstallArch.exe
 ```
