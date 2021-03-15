@@ -1,4 +1,4 @@
-const { sh, isMain, isCasual } = require('../../helpers')
+const { sh, isMain, isCasual, positiveInfo } = require('../../helpers')
 const { ALACRITY, setUpAlacritty } = require('./alacritty')
 const { DOCKER, setUpDocker } = require('./docker')
 
@@ -75,8 +75,12 @@ module.exports = async function installPacmanPrograms () {
     isMain && 'docker-compose',
     // '',
     // '',
-  ].filter(Boolean).join(' ')
-  await sh(`sudo pacman -S ${pacmanProgramList} --noconfirm --needed`)
+  ].filter(Boolean)
+  for (const programmName of pacmanProgramList) {
+    await sh(`sudo pacman -S ${programmName} --noconfirm --needed`)
+    positiveInfo(`${programmName} installed.`)
+  }
+
   
   await setUpAlacritty()
   await setUpDocker()

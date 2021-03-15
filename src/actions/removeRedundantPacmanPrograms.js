@@ -1,4 +1,4 @@
-const { sh } = require('../helpers')
+const { sh, positiveInfo } = require('../helpers')
 module.exports = async function removeRedundantPacmanPrograms () {
   const pacmanProgramList = [
     'mousepad',
@@ -6,6 +6,10 @@ module.exports = async function removeRedundantPacmanPrograms () {
     'xfce4-terminal',
     'parole'
     // '',
-  ].filter(Boolean).join(' ')
-  await sh(`sudo pacman -Rs ${pacmanProgramList} --noconfirm --needed`)
+  ].filter(Boolean)
+
+  for (const programmName of pacmanProgramList) {
+    await sh(`sudo pacman -Rs ${programmName} --noconfirm --needed`)
+    positiveInfo(`${programmName} removed.`)
+  }
 }

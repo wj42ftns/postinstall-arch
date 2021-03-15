@@ -6,7 +6,8 @@ module.exports = async function installZsh () {
   }
 
   await sh(`
-sudo pacman -S zsh zsh-completions --noconfirm --needed
+sudo pacman -S zsh --noconfirm --needed
+sudo pacman -S zsh-completions --noconfirm --needed
 chsh -s /usr/bin/zsh
 `)
 }

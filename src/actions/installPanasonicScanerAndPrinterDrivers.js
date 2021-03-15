@@ -1,6 +1,6 @@
 const axios = require('axios')
 const { JSDOM } = require("jsdom")
-const { sh, isMain } = require('../helpers')
+const { sh, isMain, positiveInfo } = require('../helpers')
 
 const OFFICIAL_DRIVERS_LINK = 'https://panasonic.net/cns/pcc/support/fax/common/table/linuxdriver.html'
 
@@ -12,7 +12,9 @@ sudo systemctl enable cups.service
 sudo usermod -a -G sys $USER
 sudo systemctl restart cups.service
 yay -S panasonic-mfp --noconfirm --needed
-sudo pacman -S simple-scan system-config-printer ghostscript --noconfirm --needed
+sudo pacman -S simple-scan --noconfirm --needed
+sudo pacman -S system-config-printer --noconfirm --needed
+sudo pacman -S ghostscript --noconfirm --needed
 `)
 }
 
@@ -44,5 +46,7 @@ module.exports = async function installPanasonicScanerAndPrinterDrivers () {
   }
 
   await installDependenciesAndScannerSupporting()
+  positiveInfo('installDependenciesAndScannerSupporting finished.')
   await installOfficialPrinterDriver()
+  positiveInfo('installOfficialPrinterDriver finished.')
 }

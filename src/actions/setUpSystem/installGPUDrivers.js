@@ -1,4 +1,4 @@
-const { sh, addInShrc } = require('../../helpers')
+const { sh, addInShrc, positiveInfo } = require('../../helpers')
 
 const getCpuVendor = async function getCpuVendor () {
   return (await sh('cat /proc/cpuinfo | grep vendor | uniq')).stdout.toString().replace(/^.*: /, '')
@@ -46,7 +46,11 @@ module.exports = async function installGPUDrivers () {
     break
   }
 
-  await sh(`yay -S ${GPUDriversList.join(' ')} --noconfirm --needed`)
+
+  for (const programmName of GPUDriversList) {
+    await sh(`yay -S ${programmName} --noconfirm --needed`)
+    positiveInfo(`${programmName} installed.`)
+  }
 
   if (videoDriversEnvironmentVariables) {
     await addInShrc(videoDriversEnvironmentVariables, { comment: '# video drivers environment variables' })
@@ -55,5 +59,6 @@ module.exports = async function installGPUDrivers () {
   if (await isNVidiaSupported()) {
     const driverName = (await isLtsLinuxKernel()) ? 'nvidia-lts' : 'nvidia'
     await sh(`sudo pacman -S ${driverName} --noconfirm --needed`)
+    positiveInfo(`${driverName} installed.`)
   }
 }

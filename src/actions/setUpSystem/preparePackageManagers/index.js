@@ -8,5 +8,5 @@ sudo pacman -Sy archlinux-keyring --noconfirm --needed             #before updat
 sudo pacman -Syu --noconfirm                                       #update pacman packages and system
 `)
   await installYay()
-  await sh('yay -Syu --aur --noconfirm --devel --timeupdate') // update yay packages
+  await sh('yay -Syu --noconfirm') // update yay packages
 }
