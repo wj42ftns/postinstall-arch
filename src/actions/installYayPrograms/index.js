@@ -1,5 +1,6 @@
 const { sh, isCasual, isMain } = require('../../helpers')
 const { setUpSublimeText, SUBLIME_TEXT } = require('./sublimeText')
+const { setUpRedshift, REDSHIFT_GTK } = require('./redshift')
 
 module.exports = async function installYayPrograms () {
   const yayProgramList = [
@@ -8,6 +9,7 @@ module.exports = async function installYayPrograms () {
     // ######################
     isMain && 'mytetra', // gui pim manager,
     SUBLIME_TEXT, // gui text-editor
+    isMain && REDSHIFT_GTK, // shift screen highlight to yellow zone
     // #####################
     // #       Media       #
     // #####################
@@ -28,4 +30,5 @@ module.exports = async function installYayPrograms () {
   ].filter(Boolean).join(' ')
   await sh(`yay -S ${yayProgramList} --noconfirm --needed`)
   setUpSublimeText()
+  setUpRedshift()
 }

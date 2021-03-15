@@ -1,7 +1,7 @@
-const { sh, hasNotErr } = require('../../helpers')
+const { sh, hasErr } = require('../../helpers')
 
 exports.setUpAlacritty = async function setUpAlacritty () {
-  if (await hasNotErr('alacritty --version')) {
+  if (await hasErr('alacritty --version')) {
     return
   }
 

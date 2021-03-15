@@ -4,7 +4,7 @@ const { sh, hasNotErr, addInShrc, isMain } = require('../helpers')
 const PATH_TO_CUSTOM_ALIASES = '$HOME/.customScripts/customAliases.sh'
 
 const createCustomBashAliasesFile = async function createCustomBashAliasesFile () {
-  if (await hasNotErr('sudo stat $HOME/.bashCustomAliases')) {
+  if (await hasNotErr(`sudo stat ${PATH_TO_CUSTOM_ALIASES}`)) {
     return
   }
 
