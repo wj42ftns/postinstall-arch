@@ -29,4 +29,4 @@ EOF
 }
 
 
-exports.REDSHIFT_GTK = 'redshift-gtk'
+exports.REDSHIFT_GTK = 'redshift-gtk-git'
