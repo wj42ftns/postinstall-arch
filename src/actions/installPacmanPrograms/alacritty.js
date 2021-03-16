@@ -12,8 +12,6 @@ touch $HOME/.config/alacritty/alacritty.yml
 tee -a $HOME/.config/alacritty/alacritty.yml << EOF
 env:
   TERM: alacritty
-  LANG: "en_US.UTF-8"
-  LC_CTYPE: en_US.UTF-8
 window:
   dimensions:
     columns: 113
