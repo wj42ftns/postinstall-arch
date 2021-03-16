@@ -15,8 +15,6 @@ async function main () {
   positiveInfo('setUpSystem finished.')
   await installPacmanPrograms()
   positiveInfo('installPacmanPrograms finished.')
-  await removeRedundantPacmanPrograms()
-  positiveInfo('removeRedundantPacmanPrograms finished.')
   await installYayPrograms()
   positiveInfo('installYayPrograms finished.')
   await enableServices()
@@ -27,6 +25,8 @@ async function main () {
   positiveInfo('cleanUp finished.')
   await installPanasonicScanerAndPrinterDrivers() // Panasonic KX-M1500
   positiveInfo('installPanasonicScanerAndPrinterDrivers finished.')
+  await removeRedundantPacmanPrograms()
+  positiveInfo('removeRedundantPacmanPrograms finished.')
 
   positiveInfo('-'.repeat(31))
   positiveInfo('|       SCRIPT FINISHED       |')

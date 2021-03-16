@@ -18,7 +18,11 @@ module.exports = async function installGPUDrivers () {
     'lib32-mesa',
     'vulkan-icd-loader',
     'lib32-vulkan-icd-loader',
-    'ffmpeg libva-utils libva-vdpau-driver vdpauinfo' // Improving hardware video accelaration
+    // Improving hardware video accelaration
+    'ffmpeg',
+    'libva-utils',
+    'libva-vdpau-driver',
+    'vdpauinfo'
   ]
 
   const cpuVendor = getCpuVendor()
