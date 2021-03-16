@@ -9,7 +9,7 @@ module.exports = async function removeRedundantPacmanPrograms () {
   ].filter(Boolean)
 
   for (const programmName of pacmanProgramList) {
-    await sh(`sudo pacman -Rs ${programmName} --noconfirm --needed`)
+    await sh(`sudo pacman -Rs ${programmName} --noconfirm`)
     positiveInfo(`${programmName} removed.`)
   }
 }
