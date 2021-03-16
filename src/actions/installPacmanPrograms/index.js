@@ -49,13 +49,14 @@ module.exports = async function installPacmanPrograms () {
     isMain && 'transmission-cli', // cli torrent client
     'transmission-gtk', // gui torrent client
     ALACRITY, // terminal emulator
+    'the_silver_searcher', // cli quick search substring in files  https://github.com/ggreer/the_silver_searcher
+    // #####################
+    // #       Media       #
+    // #####################
     'flameshot', // screenshots
     'peek', // make gifs and light weight videos without sound screen recording
     'obs-studio', // make hight quality video screen recording
     'screenkey', // for screen recorders showing mouse and keyboard pressing
-    // #####################
-    // #       Media       #
-    // #####################
     'mplayer', // cli video/audio player
     'vlc', // gui video/audio player
     'gimp', // gui image editor
