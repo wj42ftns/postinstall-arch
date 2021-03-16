@@ -10,7 +10,7 @@ const majorVersion = '13'
 const folderName = `jdk-${majorVersion}.0.2`
 
 module.exports = async function installZsh () {
-  if (isCasual || await hasNotErr('which java')) {
+  if (isCasual || await hasNotErr('which java') || await hasNotErr(`sudo stat /opt/${folderName}`)) {
     return
   }
 
