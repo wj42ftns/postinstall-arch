@@ -7,6 +7,7 @@ module.exports = async function installYayPrograms () {
     // ######################
     // #       System       #
     // ######################
+    'timeshift',
     isMain && 'mytetra', // gui pim manager,
     SUBLIME_TEXT, // gui text-editor
     isMain && REDSHIFT_GTK, // shift screen highlight to yellow zone
