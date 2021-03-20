@@ -1,3 +1,5 @@
+// xfce4-panel --preferences
+
 exports.path = '$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml'
 exports.body = `
 <?xml version="1.0" encoding="UTF-8"?>

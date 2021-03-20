@@ -1,5 +1,7 @@
 const { isMain } = require('../../../helpers')
 
+// xfce4-notifyd-config
+
 exports.path = '$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml'
 exports.getBody = () => `
 <?xml version="1.0" encoding="UTF-8"?>
