@@ -6,7 +6,7 @@ Pet project for preparing system after clear anarchy installation: https://www.y
 
 ```shell
 git clone https://github.com/wj42ftns/postinstall-arch.git
-cd postinstall-arch
+cd ./postinstall-arch
 npm install
 npm run build  # it will work if you use nodeJs: "14.12.0"
 ```
@@ -21,7 +21,7 @@ casual
 wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
 chmod 700 ./postinstallArch.exe
 ./postinstallArch.exe
-rm postinstallArch.exe
+rm ./postinstallArch.exe
 ```
 
 or main
@@ -30,5 +30,7 @@ or main
 wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
 chmod 700 ./postinstallArch.exe
 ./postinstallArch.exe --main
-rm postinstallArch.exe
+rm ./postinstallArch.exe
 ```
+
+After installation the script you need restart your PC.
