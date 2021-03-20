@@ -20,6 +20,7 @@ module.exports = async function installYayPrograms () {
     // ########################
     'google-chrome', // gui web browser
     isCasual && 'skypeforlinux-stable-bin', // online calls
+    isMain && 'birdtray', // showing thunderbird in tray
     'slack-desktop', // online calls
     'zoom', // online calls
     'anydesk-bin', // remote control
@@ -33,7 +34,6 @@ module.exports = async function installYayPrograms () {
     await sh(`yay -S ${programmName} --noconfirm --needed`)
     positiveInfo(`${programmName} installed.`)
   }
-
 
   setUpSublimeText()
   setUpRedshift()
