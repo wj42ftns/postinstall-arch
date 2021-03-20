@@ -16,7 +16,7 @@
     "printWidth": 120
   },
   "scripts": {
-    "build": "rm -rf dist/postinstallArch.exe ; pkg src/index.js --targets=linux --output dist/postinstallArch.exe"
+    "build": "rm -rf dist/postinstallArch.exe ; node_modules/.bin/pkg src/index.js --targets=linux --output dist/postinstallArch.exe"
   },
   "devDependencies": {
     "eslint": "^7.22.0",

@@ -55,7 +55,7 @@ npm install -g npm
 }
 
 const installGlobalNpmPackages = async function installGlobalNpmPackages () {
-  const globalNpmPackagesList = ['pkg', 'svgo'].join(' ')
+  const globalNpmPackagesList = ['svgo'].join(' ')
   await sh(`npm install -g ${globalNpmPackagesList}`)
 }
 

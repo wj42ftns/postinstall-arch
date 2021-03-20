@@ -1,4 +1,4 @@
-const { sh, hasNotErr, isCasual } = require('../../helpers')
+const { sh, hasNotErr, isCasual, createFile } = require('../../helpers')
 
 // https://www.oracle.com/java/technologies/javase-downloads.html
 // https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
@@ -14,12 +14,18 @@ module.exports = async function installZsh () {
     return
   }
 
+  const path = `/etc/profile.d/openjdk${majorVersion}.sh`
+  const body = `
+ export JAVA_HOME="/opt/${folderName}"
+ export PATH="$PATH:\${JAVA_HOME}/bin"
+ `
+
+
   await sh(`
 wget ${linkToJava} -O $HOME/${folderName}.tar.gz
 tar -xvzf $HOME/${folderName}.tar.gz -C $HOME
 rm -rf $HOME/${folderName}.tar.gz
 sudo mv $HOME/${folderName} /opt/${folderName}
-touch /etc/profile.d/openjdk${majorVersion}.sh
-echo -e 'export JAVA_HOME="/opt/${folderName}"\\nexport PATH="$PATH:\${JAVA_HOME}/bin"\\n' | sudo tee /etc/profile.d/openjdk${majorVersion}.sh
 `)
+  await createFile(path, body, true)
 }

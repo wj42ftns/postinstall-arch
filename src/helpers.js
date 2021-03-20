@@ -1,5 +1,6 @@
 const { spawn } = require('child_process')
 const chalk = require('chalk')
+const path = require('path')
 
 // https://www.baeldung.com/linux/bash-interactive-prompts
 // say yes in interactive script example: await sh('yes | apt remove baobab')
@@ -74,6 +75,18 @@ exports.appendToFileIfHasNot = async (
   }
 
   return true
+}
+
+exports.createFile = async (pathToFile, fileBodyAsText, isSudo = false) => {
+  const pathToDir = path.dirname(pathToFile)
+  await exports.sh(`
+${isSudo ? 'sudo ' : ''}mkdir -p ${pathToDir}
+sudo rm -rf ${pathToFile}
+${isSudo ? 'sudo ' : ''}touch ${pathToFile}
+${isSudo ? 'sudo ' : ''}tee -a ${pathToFile} << EOF
+${fileBodyAsText.replace('\n', '')}
+EOF
+`)
 }
 
 exports.addInShrc = async (
