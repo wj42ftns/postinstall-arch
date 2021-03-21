@@ -63,8 +63,8 @@ async function main () {
   positiveInfo('cleanUp finished.')
   await installPanasonicScanerAndPrinterDrivers() // Panasonic KX-M1500
   positiveInfo('installPanasonicScanerAndPrinterDrivers finished.')
-  await removeRedundantPacmanPrograms()
-  positiveInfo('removeRedundantPacmanPrograms finished.')
+  // await removeRedundantPacmanPrograms()
+  // positiveInfo('removeRedundantPacmanPrograms finished.')
   await updateFileAssociations()
   positiveInfo('updateFileAssociations finished.')
 
