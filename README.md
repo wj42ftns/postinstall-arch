@@ -20,19 +20,17 @@ look for binary script in postinstallArch.exe
 casual
 
 ```shell
-wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
-chmod 700 ./postinstallArch.exe
+wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe
+chmod 700 postinstallArch.exe
 ./postinstallArch.exe
-rm ./postinstallArch.exe
 ```
 
 or main
 
 ```shell
-wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe postinstallArch.exe
-chmod 700 ./postinstallArch.exe
+wget https://github.com/wj42ftns/postinstall-arch/raw/main/dist/postinstallArch.exe
+chmod 700 postinstallArch.exe
 ./postinstallArch.exe --main
-rm ./postinstallArch.exe
 ```
 
 After installation the script you need restart your PC.
