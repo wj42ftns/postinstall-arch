@@ -36,6 +36,7 @@ module.exports = async function installPacmanPrograms () {
     'alsa-utils',
     'alsa-plugins',
     //
+    'wmctrl', // working with windows from cli
     'baobab', // gui checking hard drive space
     isMain && 'ranger', // cli  vim-like file manager
     'thunar', // gui file manager
