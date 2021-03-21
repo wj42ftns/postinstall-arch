@@ -12,6 +12,7 @@ exports.sh = (instructions, options) => {
       stderr: [],
       code: 0
     }
+    console.log(chalk.bold.cyan(instructions))
     const subProcess = spawn('/bin/sh', ['-c', instructions], options)
     const getOnDataFn = stdName => srcData => {
       process[stdName].write(srcData)
