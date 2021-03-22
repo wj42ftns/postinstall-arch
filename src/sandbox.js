@@ -7,10 +7,11 @@ const { JSDOM } = require("jsdom")
 /* eslint-enable */
 
 const main = async function main () {
-  console.log(chalk.bold.cyan('test 1'))
-  console.log(chalk.bold.green('test 2'))
-  console.log(chalk.bold.cyanBright('test 2'))
-  console.log(chalk.bold.visible('test 3'))
+
+  // const zshrcPath = '/home/wj42/work/JS/postinstallArch/src/test.sh'
+
+
+  // createFile(zshrcPath, zshrcBody)
   //
 }
 

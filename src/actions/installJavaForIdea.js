@@ -9,7 +9,7 @@ const linkToJava = 'https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d
 const majorVersion = '13'
 const folderName = `jdk-${majorVersion}.0.2`
 
-module.exports = async function installZsh () {
+module.exports = async function installJavaForIdea () {
   if (isCasual || await hasNotErr('which java') || await hasNotErr(`sudo stat /opt/${folderName}`)) {
     return
   }

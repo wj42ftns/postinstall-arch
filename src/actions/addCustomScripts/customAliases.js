@@ -3,7 +3,6 @@ const { isMain } = require('../../helpers')
 exports.path = '$HOME/.customScripts/customAliases.sh'
 exports.getBody = () => {
   let body = `
-alias ls='ls --color=auto --classify'
 alias off='systemctl poweroff -i'
 alias reb='systemctl reboot -i'
 alias zzz='systemctl suspend'
