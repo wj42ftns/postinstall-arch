@@ -36,6 +36,8 @@ module.exports = async function installPacmanPrograms () {
     'alsa-utils',
     'alsa-plugins',
     //
+    'xfce4-screenshooter', // screenshots  // xfce4-screenshooter --region - for macking screenshot of selected area
+    'zenity', // linux alerts, prompts and popups
     'wmctrl', // working with windows from cli
     'baobab', // gui checking hard drive space
     isMain && 'ranger', // cli  vim-like file manager

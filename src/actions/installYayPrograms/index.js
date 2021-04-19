@@ -19,7 +19,8 @@ module.exports = async function installYayPrograms () {
     // #       Internet       #
     // ########################
     'google-chrome', // gui web browser
-    isCasual && 'skypeforlinux-stable-bin', // online calls
+    isMain && 'openvpn-update-resolv-conf', // need for openvpn: https://wiki.archlinux.org/index.php/OpenVPN#The_update-resolv-conf_custom_script
+    isCasual && 'skypeforlinux-stable-bin gnome-keyring', // or skypeforlinux-preview-bin // - online calls - gnome-keyring need to avoid auto log out from skype
     isMain && 'birdtray', // showing thunderbird in tray
     'slack-desktop', // online calls
     'zoom', // online calls
