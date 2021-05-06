@@ -8,6 +8,7 @@ module.exports = async function installYayPrograms () {
     // #       System       #
     // ######################
     'timeshift',
+    isMain && 'rtl8814au-aircrack-dkms-git', // wifi adapter alfa ac1900 driver
     isMain && 'mytetra', // gui pim manager,
     SUBLIME_TEXT, // gui text-editor
     isMain && REDSHIFT_GTK, // shift screen highlight to yellow zone
