@@ -57,7 +57,6 @@ yay -S zsh-completions --noconfirm --needed
 yay -S oh-my-zsh-git --noconfirm --needed
 yay -S zsh-syntax-highlighting --noconfirm --needed
 yay -S zsh-autosuggestions --noconfirm --needed
-chsh -s /usr/bin/zsh
 `)
   await createFile(zshrcPath, zshrcBody)
 }
