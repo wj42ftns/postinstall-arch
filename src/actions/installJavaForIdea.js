@@ -16,9 +16,9 @@ module.exports = async function installJavaForIdea () {
 
   const path = `/etc/profile.d/openjdk${majorVersion}.sh`
   const body = `
- export JAVA_HOME="/opt/${folderName}"
- export PATH="$PATH:\${JAVA_HOME}/bin"
- `
+export JAVA_HOME="/opt/${folderName}"
+export PATH="\\$PATH:\\\${JAVA_HOME}/bin"
+`
 
 
   await sh(`

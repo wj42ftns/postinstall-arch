@@ -2,6 +2,8 @@ const { isMain } = require('../../../helpers')
 
 // xfce4-notifyd-config
 
+const TOOLTIP_SHOWING_DURATION = isMain ? 2 : 30
+
 exports.path = '$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml'
 exports.getBody = () => `
 <?xml version="1.0" encoding="UTF-8"?>
@@ -43,5 +45,5 @@ exports.getBody = () => `
   <property name="initial-opacity" type="double" value="1.000000"/>
   <property name="do-slideout" type="bool" value="false"/>
   <property name="do-fadeout" type="bool" value="false"/>
-  <property name="expire-timeout" type="int" value="${isMain ? '2' : '30'}"/>
+  <property name="expire-timeout" type="int" value="${TOOLTIP_SHOWING_DURATION}"/>
 </channel>`

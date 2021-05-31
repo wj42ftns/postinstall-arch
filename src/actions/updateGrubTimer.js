@@ -1,11 +1,12 @@
-const { sh, hasErr, fileContains } = require('../helpers')
+const { sh, hasErr, fileContains, isMain } = require('../helpers')
+
 
 module.exports = async function updateGrubTimer () {
   if (await hasErr('sudo stat /etc/default/grub')) {
     return
   }
 
-  const DELAY = 1
+  const DELAY = isMain ? 1 : 5
   const isAlreadyHasThisDelay = await fileContains('/etc/default/grub', `GRUB_TIMEOUT=${DELAY}`)
   if (isAlreadyHasThisDelay) {
     return
